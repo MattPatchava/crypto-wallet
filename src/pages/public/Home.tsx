@@ -19,7 +19,7 @@ function Home(): JSX.Element {
         <div>
             <Header />
             <div className="m-4">
-                {ethPrice ? `$${ethPrice}` : "Loading..."}
+                {ethPrice ? `$${ethPrice.toFixed(2)}` : "Loading..."}
             </div>
         </div>
     );
