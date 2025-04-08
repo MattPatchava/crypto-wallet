@@ -3,9 +3,11 @@ import Home from '@/pages/public/Home';
 
 function App(): JSX.Element {
     return (
-        <Routes>
-            <Route index element={<Home />} />
-        </Routes>
+        <div className="bg-gray-100 min-h-screen">
+            <Routes>
+                <Route index element={<Home />} />
+            </Routes>
+        </div>
     );
 }
 
