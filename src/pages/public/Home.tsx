@@ -1,25 +1,16 @@
+import { useFetchPrices } from '@/hooks/useFetchPrices';
 import Header from '@/components/Header';
-import { useState, useEffect } from 'react';
-import { getPrice } from '@/lib/blockchain/chainlink/getPrices';
+import Prices from '@/components/Prices';
 
 function Home(): JSX.Element {
 
-    const [ethPrice, setEthPrice] = useState();
-
-    useEffect(() => {
-        async function fetchEthPrice() {
-            const result = await getPrice("eth");
-            setEthPrice(result);
-        }
-
-        fetchEthPrice();
-    }, []);
-
+    const prices: number[] = useFetchPrices();
+    
     return (
         <div>
             <Header />
             <div className="m-4">
-                {ethPrice ? `$${ethPrice.toFixed(2)}` : "Loading..."}
+                <Prices prices={prices} />
             </div>
         </div>
     );
