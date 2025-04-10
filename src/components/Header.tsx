@@ -1,8 +1,10 @@
+import { Flex, Heading } from '@chakra-ui/react';
+
 function Header(): JSX.Element {
     return (
-        <div className="flex items-center justify-between px-4 py-2 shadow">
-            <h1 className="text-2xl font-bold mb -2">Crypto Wallet</h1>
-        </div>
+        <Flex px={4} py={2} shadow="md" align="center" justify="space-between">
+            <Heading>Crypto Wallet</Heading>
+        </Flex>
     );
 }
 

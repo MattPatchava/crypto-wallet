@@ -1,3 +1,5 @@
+import { Box, Text } from "@chakra-ui/react";
+
 type PricesProps = {
     prices: {
         eth: number;
@@ -6,17 +8,21 @@ type PricesProps = {
     } | null;
 }
 
-// type PricesProps = Record<string, Record<string, number>>;
-
-function Prices({ prices }: PricesProps): JSX.Component {
+function Prices({ prices }: PricesProps): JSX.Element {
     return (
-        prices ? (
-            <>
-                <div>ETH: {`$${prices.eth.toFixed(2)}`}</div>
-                <div>BTC: {`$${prices.btc.toFixed(2)}`}</div>
-                <div>SOL: {`$${prices.sol.toFixed(2)}`}</div>
-            </>
-        ) : <div>Loading Prices...</div>
+        <Box p={4}>
+            <Text fontSize="xl" fontWeight="bold" mb={2}>Price Feed</Text>
+            {prices ? (
+                <>
+                    <Text>ETH: {`$${prices.eth.toFixed(2)}`}</Text>
+                    <Text>BTC: {`$${prices.btc.toFixed(2)}`}</Text>
+                    <Text>SOL: {`$${prices.sol.toFixed(2)}`}</Text>
+                </>
+            )
+            :
+                <Text>Loading Prices...</Text>
+            }
+        </Box>
     );
 }
 
