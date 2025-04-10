@@ -5,7 +5,7 @@ import Prices from '@/components/Prices';
 
 function Home(): JSX.Element {
 
-    const prices: number[] = useFetchPrices();
+    const prices: Record<string, BigNumber> = useFetchPrices();
     
     return (
         <Box>

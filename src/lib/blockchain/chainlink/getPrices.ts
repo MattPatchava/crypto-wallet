@@ -4,14 +4,14 @@ import { provider } from '../provider';
 import { priceFeeds } from './priceFeeds';
 
 type RoundData = {
-    roundId: bigint;
-    answer: bigint;
-    startedAt: bigint;
-    updatedAt: bigint;
-    answeredInRound: bigint;
+    roundId: BigNumber;
+    answer: BigNumber;
+    startedAt: BigNumber;
+    updatedAt: BigNumber;
+    answeredInRound: BigNumber;
 };
 
-export async function getPrice(symbol: string): Promise<number> {
+export async function getPrice(symbol: string): Promise<BigNumber> {
     const address: string = priceFeeds.usd[symbol];
     const contract: ethers.Contract = new ethers.Contract(address, priceFeedAbi, provider);
 
